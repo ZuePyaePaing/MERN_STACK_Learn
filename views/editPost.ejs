@@ -1,14 +1,16 @@
-<%- include('./includes/header')%>
+<%- include("./includes/header")%>
 <section>
   <div class="container">
-    <form class="form-container" action="/admin" method="POST">
-      <h2>Create Post</h2>
+    <form class="form-container" action="/admin/edit-post" method="POST">
+      <h2>Edit Post</h2>
+      <input type="text" name="id" hidden value="<%= post._id%>" />
       <div class="item">
         <label for="title">Title</label>
         <input
           type="text"
           name="title"
           id="titel"
+          value="<%= post.title%>"
           placeholder="Write this title"
           required
         />
@@ -19,16 +21,19 @@
           type="text"
           name="image"
           id="image"
+          value="<%= post.imgUrl %>"
           placeholder="Image Url"
           required
         />
       </div>
       <div class="item">
         <label for="description">Description</label>
-        <textarea name="description" id="description"></textarea>
+        <textarea name="description" id="description">
+        <%= post.description%></textarea
+        >
       </div>
-      <button>Add Post</button>
+      <button>Updated Post</button>
     </form>
   </div>
 </section>
-<%- include('./includes/footer')%>
+<%- include("./includes/footer")%>
