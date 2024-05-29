@@ -1,20 +1,24 @@
 <%- include('./includes/header') %>
 <section>
   <div class="container">
-    <h1>Welcome Our Blog Site.</h1>
+    <div class="header">
+      <h1>Welcome Our Blog Site.</h1>
+      <a href="/admin/create-post">Create Post</a>
+    </div>
+    <% if (posts.length === 0) { %>
+    <div>
+      <p>Nothing to see</p>
+      <p>Create a new post!</p>
+      <a href="/admin/create-post">Create post</a>
+    </div>
+    <% } %>
     <div class="post-container">
+      <% for (let post of posts) { %>
       <div class="post">
-        <h3>Post Title</h3>
-        <button>See More...</button>
+        <h3><%=post.title%></h3>
+        <a href="/posts/detail/<%= post._id %>">See More...</a>
       </div>
-      <div class="post">
-        <h3>Post Title</h3>
-        <button>See More...</button>
-      </div>
-      <div class="post">
-        <h3>Post Title</h3>
-        <button>See More...</button>
-      </div>
+      <% } %>
     </div>
   </div>
 </section>

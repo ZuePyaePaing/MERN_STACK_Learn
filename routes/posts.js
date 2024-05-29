@@ -4,4 +4,6 @@ const router = express.Router();
 
 router.get("/", controllers.renderPostsPage);
 
+router.get('/detail/:id',controllers.renderPostDatail)
+
 module.exports = router;

@@ -18,5 +18,14 @@ exports.renderCreatePage = (req, res) => {
 };
 
 exports.renderPostsPage = (req, res) => {
-  res.render("home", { title: "Home Page" });
+  Post.getPosts()
+    .then((posts) => {
+      res.render("home", { title: "Home Page", posts });
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.renderPostDatail = (req, res) => {
+  const { id } = req.params;
+  res.render("detailPost", { title: "Detail Page" });
 };
