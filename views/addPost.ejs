@@ -1,32 +1,34 @@
 <%- include('./includes/header')%>
 <section>
-  <form action="/admin" method="post">
-    <h2>Create Post</h2>
-    <div class="item">
-      <label for="title">Title</label>
-      <input
-        type="text"
-        name="title"
-        id="titel"
-        placeholder="Write this title"
-        required
-      />
-    </div>
-    <div class="item">
-      <label for="image">Image</label>
-      <input
-        type="text"
-        name="image"
-        id="image"
-        placeholder="Image Url"
-        required
-      />
-    </div>
-    <div class="item">
-      <label for="description">Description</label>
-      <textarea name="description" id="description"></textarea>
-    </div>
-    <button>Add Post</button>
-  </form>
+  <div class="container">
+    <form action="/admin" method="POST">
+      <h2>Create Post</h2>
+      <div class="item">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="titel"
+          placeholder="Write this title"
+          required
+        />
+      </div>
+      <div class="item">
+        <label for="image">Image</label>
+        <input
+          type="text"
+          name="image"
+          id="image"
+          placeholder="Image Url"
+          required
+        />
+      </div>
+      <div class="item">
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+      </div>
+      <button>Add Post</button>
+    </form>
+  </div>
 </section>
 <%- include('./includes/footer')%>

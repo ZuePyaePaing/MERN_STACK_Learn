@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const router = require("./routes/posts");
+const postRoute = require("./routes/posts");
 const adminRoute = require("./routes/admin");
+require("dotenv").config();
+const { mongodbConnector } = require("./utils/database");
 
 const port = process.env.PORT || 8000;
-
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -28,9 +29,11 @@ app.use("/posts", (req, res, next) => {
   next();
 });
 
-app.use(router);
+app.use(postRoute);
+
 app.use("/admin", adminRoute);
 
+mongodbConnector();
 app.listen(port, () => {
   console.log(`Server running on http://loaclhost:${port}`);
 });
